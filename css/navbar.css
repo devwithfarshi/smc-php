@@ -24,7 +24,7 @@ header {
   gap: 4rem;
 }
 
-.nav__list__items.active_user_icon {
+.nav__list__items.active_user_nav_item {
   display: none;
 }
 .nav__list__items {
@@ -32,6 +32,7 @@ header {
   line-height: 1.5rem;
   font-weight: 600;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 .nav__list__items a {
   color: var(--c-3);
@@ -78,28 +79,57 @@ header {
   cursor: pointer;
 }
 
-.menu__icon {
+.menu__icon,
+.menu__cross__icon {
+  display: none;
+}
+
+.menu__icon,
+.menu__cross__icon {
   border: 0;
   outline: 0;
   cursor: pointer;
   background-color: transparent;
 }
-.menu__icon img {
+.menu__icon img,
+.menu__cross__icon img {
   width: 4rem;
   height: 4rem;
 }
 
+.nav_list_mobile {
+  display: none;
+}
+
 @media (min-width: 350px) and (max-width: 1024px) {
-  .nav__list__items.active_user_icon {
-    display: inline-block;
-  }
-  .navbar_user_icon {
-    display: none;
+  .menu__icon,
+  .menu__cross__icon {
+    display: block;
   }
   .nav_list {
     display: none;
   }
-  .search__box {
-    flex: 1;
+  .nav_list_mobile {
+    background-color: var(--c-2);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    /* display  : flex; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .nav_list_mobile .nav__list__items a {
+    color: var(--c-7);
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+  }
+  .active_mobile_menu.nav_list_mobile {
+    display: flex !important;
   }
 }
