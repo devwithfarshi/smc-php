@@ -177,4 +177,36 @@ End banner
   }
 }
 .blog_details_author_info {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.blog_details_author_info p {
+  color: var(--c-5);
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+.blog_details_author_info_autor_name {
+  color: var(--c-2);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.blog_details_author_info_published_date {
+  color: var(--c-3);
+  font-weight: 600;
+}
+
+h2.blog_details_title {
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--c-3);
+  margin: 2rem 0;
+}
+p.blog_details_desc {
+  font-size: 2rem;
+  color: var(--c-3);
+  margin: 2rem 0;
+  text-align: justify;
+  padding-bottom: 5rem;
 }
