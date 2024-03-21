@@ -19,6 +19,9 @@
   --c-6: #e5e5e5;
   --c-7: #ffffff;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 html {
   scroll-behavior: smooth;
@@ -36,9 +39,9 @@ ul {
   max-width: 144rem;
   margin: 0 auto;
 }
-.main {
+/* .main {
   padding-top: 15rem;
-}
+} */
 .page_heading {
   text-align: center;
   margin: 5rem 0;
@@ -170,7 +173,7 @@ End banner
 /* blog_details */
 
 .blog__details__wrapper {
-  margin-top: 15rem;
+  margin-top: 5rem;
 }
 .blog_details_image {
   height: 60vh;

@@ -1,6 +1,13 @@
 <?php
-$server="localhost";
-$username="root";
-$password="";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $db_name="smc";
-$db_con=mysqli_connect($server,$username,$password,$db_name);
+
+// Create connection
+$db_con = new mysqli($servername, $username, $password,$db_name);
+
+// Check connection
+if ($db_con->connect_error) {
+  die("Connection failed: " . $db_con->connect_error);
+}

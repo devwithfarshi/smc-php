@@ -28,7 +28,6 @@
                     <li class="nav__list__items"><a href="#">Help</a></li>
                     <li class="nav__list__items"><a href="#">Legislation</a></li>
                     <li class="nav__list__items"><a href="#">Contact</a></li>
-                    <li class="nav__list__items active_user_nav_item"><a href="#">Profile</a></li>
 
                 </ul>
 
@@ -38,24 +37,32 @@
                     <button class="menu__cross__icon" id="menuBtnCross">
                         <img src="assets/icons/cross.svg" alt="menu_close">
                     </button>
-                    <li class="nav__list__items"><a href="/">Home</a></li>
+                    <li class="nav__list__items"><a href="./blogs.php">Blogs</a></li>
                     <li class="nav__list__items"><a href="#">Information</a></li>
                     <li class="nav__list__items"><a href="#">Apps</a></li>
                     <li class="nav__list__items"><a href="#">Livestreaming</a></li>
                     <li class="nav__list__items"><a href="#">Help</a></li>
                     <li class="nav__list__items"><a href="#">Legislation</a></li>
                     <li class="nav__list__items"><a href="#">Contact</a></li>
-                    <li class="nav__list__items active_user_nav_item"><a href="#">Profile</a></li>
                 </ul>
-                <div class="navbar__actions">
-                    <div class="search__box">
-                        <input type="text" placeholder="Search">
-                        <img src="assets/icons/search.png" alt="search">
-                    </div>
-                    <figure class="navbar_user_icon">
-                        <img src="assets/icons/user.svg" alt="user profile">
-                    </figure>
-                </div>
+                <?php
+                // $path = basename($_SERVER['REQUEST_URI']);
+                $path = explode("?", explode("/", $_SERVER["REQUEST_URI"])[2])[0];
+                if ($path == "blogs.php") {
+
+                    echo '
+                    <div class="navbar__actions">
+                    <form class="search__box">
+                    <input name="search" type="text" placeholder="Search">
+                    
+                    <button class="search_btn" type="submit">
+                    <img src="assets/icons/search.png" alt="search">
+                    </button>
+                    </form>
+                    
+                    </div>';
+                }
+                ?>
                 <button class="menu__icon" id="menuBtn">
                     <img src="assets/icons/menu.svg" alt="menu">
                 </button>
