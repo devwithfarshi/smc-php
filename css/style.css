@@ -36,3 +36,145 @@ ul {
   max-width: 144rem;
   margin: 0 auto;
 }
+.main {
+  padding-top: 15rem;
+}
+.page_heading {
+  text-align: center;
+  margin: 5rem 0;
+  font-size: 4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--c-1);
+  line-height: 1.2;
+  letter-spacing: 0.1rem;
+}
+
+/* ===========================
+banner
+==================
+*/
+
+#banner {
+  height: 100vh;
+}
+
+.banner_wrapper {
+  padding-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.banner_wrapper .banner__text__box {
+  width: 50%;
+}
+.banner_image {
+  width: 50%;
+  img {
+    width: 100%;
+  }
+}
+.banner_wrapper .banner__text__box .banner__text__box__heading {
+  font-size: 6rem;
+  color: var(--c-3);
+  text-transform: uppercase;
+}
+.banner_wrapper .banner__text__box .banner__text__box__heading span {
+  display: block;
+  color: var(--c-1);
+}
+
+.banner_wrapper .banner__text__box p {
+  font-size: 2rem;
+  color: var(--c-3);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.banner__btn {
+  display: inline-block;
+  background-color: var(--c-2);
+  padding: 1rem 3rem;
+  border-radius: 3.2rem;
+  font-size: 2rem;
+  color: var(--c-7);
+  font-weight: 600;
+}
+
+/* ===========================
+End banner
+==================
+*/
+
+/* blogs */
+
+.blogs_wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.blog__card {
+  width: 30%;
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: 0.1rem solid var(--c-6);
+  transition: all 250ms ease-in-out;
+}
+
+.blog__card:hover {
+  transform: translateY(-1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.blog__card figure {
+  height: 42rem;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.blog__card h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--c-3);
+  margin: 1rem 0;
+}
+.blog__card div.blog__infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blog__card div.blog__infos p {
+  color: var(--c-5);
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.blog__card div.blog__infos p .autor_name {
+  color: var(--c-2);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.blog__card div.blog__infos p .published_date {
+  color: var(--c-3);
+  font-weight: 600;
+}
+
+/* blog_details */
+.blog_details_image {
+  height: 60vh;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.blog_details_author_info {
+}

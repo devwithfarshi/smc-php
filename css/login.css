@@ -25,13 +25,10 @@
   font-weight: 600;
 }
 .login__section p a {
-  color: var(--c-7);
   text-decoration: underline;
   text-transform: capitalize;
 }
 
-.auth_form {
-}
 .auth_form input {
   display: block;
   margin: 2rem auto;
@@ -53,4 +50,5 @@
   color: var(--c-4);
   font-size: 1.4rem;
   font-weight: 600;
+  cursor: pointer;
 }

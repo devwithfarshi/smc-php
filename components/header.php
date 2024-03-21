@@ -15,9 +15,12 @@
     <header>
         <div class="container">
             <nav class="navbar ">
-                <h2 class="logo">SMc</h2>
+                <a href="
+                /">
+                    <h2 class="logo">SMc</h2>
+                </a>
                 <ul class="nav_list">
-                    <li class="nav__list__items"><a href="/">Home</a></li>
+                    <li class="nav__list__items"><a href="./blogs.php">Blogs</a></li>
                     <li class="nav__list__items"><a href="#">Information</a></li>
                     <li class="nav__list__items"><a href="#">Apps</a></li>
                     <li class="nav__list__items"><a href="#">Livestreaming</a></li>
