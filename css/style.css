@@ -168,6 +168,10 @@ End banner
 }
 
 /* blog_details */
+
+.blog__details__wrapper {
+  margin-top: 15rem;
+}
 .blog_details_image {
   height: 60vh;
   img {

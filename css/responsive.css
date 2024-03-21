@@ -1,0 +1,34 @@
+@media (min-width: 350px) and (max-width: 768px) {
+  .container {
+    max-width: 90vw;
+  }
+  .banner_wrapper {
+    padding-top: 2rem;
+    flex-direction: column;
+    align-items: start;
+    gap: 5rem;
+  }
+  .banner_wrapper .banner__text__box .banner__text__box__heading {
+    font-size: 4rem;
+  }
+  .banner_wrapper .banner__text__box {
+    width: 100%;
+  }
+  .banner_image {
+    width: 100%;
+  }
+
+  /* Blogs */
+
+  .blog__card {
+    width: 100%;
+  }
+
+  h2.blog_details_title {
+    font-size: 2.6rem;
+    margin: 1rem 0;
+  }
+  p.blog_details_desc {
+    font-size: 1.6rem;
+  }
+}
