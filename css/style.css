@@ -147,6 +147,11 @@ End banner
   color: var(--c-3);
   margin: 1rem 0;
 }
+.blog__card .blog__desc {
+  font-size: 1.4rem;
+  color: var(--c-3);
+  margin: 1rem 0;
+}
 .blog__card div.blog__infos {
   display: flex;
   align-items: center;

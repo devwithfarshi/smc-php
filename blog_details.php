@@ -6,7 +6,7 @@ if (isset ($_GET['id'])) {
 
     include "db.php";
     $post_id = $_GET['id'];
-    $sql = "SELECT * FROM posts WHERE id = '$post_id'";
+    $sql = "SELECT posts.*,users.full_name as full_name FROM posts ,users WHERE posts.id = '$post_id' AND posts.posted_by=users.id ";
     $results = mysqli_query($db_con, $sql);
     $data = mysqli_fetch_array($results);
     // echo "<pre>";
@@ -28,7 +28,7 @@ if (isset ($_GET['id'])) {
         </figure>
         <div class="blog_details_author_info">
             <p>written by : <span class="blog_details_author_info_autor_name">
-                    <?php echo $data['posted_by']; ?>
+                    <?php echo $data['full_name']; ?>
                 </span>
             </p>
             <p>published on : <span class="blog_details_author_info_published_date">

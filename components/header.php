@@ -28,6 +28,8 @@
                     <li class="nav__list__items"><a href="#">Help</a></li>
                     <li class="nav__list__items"><a href="#">Legislation</a></li>
                     <li class="nav__list__items"><a href="#">Contact</a></li>
+                    <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
+                    <li class="nav__list__items"><a href="./register.php">Register</a></li>
 
                 </ul>
 
@@ -44,6 +46,8 @@
                     <li class="nav__list__items"><a href="#">Help</a></li>
                     <li class="nav__list__items"><a href="#">Legislation</a></li>
                     <li class="nav__list__items"><a href="#">Contact</a></li>
+                    <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
+                    <li class="nav__list__items"><a href="./register.php">Register</a></li>
                 </ul>
                 <?php
                 // $path = basename($_SERVER['REQUEST_URI']);
