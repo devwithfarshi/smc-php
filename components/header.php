@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +12,18 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <?php
+    if (isset ($_SESSION["isAdmin"])) {
+        if ($_SESSION['isAdmin']) {
+            echo '<link rel="stylesheet" href="css/admin.css">';
+        }
+    }
+    ?>
 </head>
 
 <body>
 
-    <header>
+    <header class="navbar_header">
         <div class="container">
             <nav class="navbar ">
                 <a href="
@@ -22,14 +32,43 @@
                 </a>
                 <ul class="nav_list">
                     <li class="nav__list__items"><a href="./blogs.php">Blogs</a></li>
-                    <li class="nav__list__items"><a href="#">Information</a></li>
-                    <li class="nav__list__items"><a href="#">Apps</a></li>
-                    <li class="nav__list__items"><a href="#">Livestreaming</a></li>
-                    <li class="nav__list__items"><a href="#">Help</a></li>
-                    <li class="nav__list__items"><a href="#">Legislation</a></li>
+                    <li class="nav__list__items">
+                        <a href="#">Information</a>
+
+                        <ul class="drop_down">
+                            <li class="drop__down__nav__list__items"><a href="#">Apps</a></li>
+                            <li class="drop__down__nav__list__items"><a href="#">Livestreaming</a></li>
+                            <li class="drop__down__nav__list__items"><a href="#">Help</a></li>
+                            <li class="drop__down__nav__list__items"><a href="#">Legislation</a></li>
+                        </ul>
+
+                    </li>
+
                     <li class="nav__list__items"><a href="#">Contact</a></li>
-                    <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
-                    <li class="nav__list__items"><a href="./register.php">Register</a></li>
+                    <?php
+                    if (isset ($_SESSION["isAdmin"])) {
+                        if ($_SESSION['isAdmin']) {
+
+                            echo '    
+                            <li class="nav__list__items"><a href="./admin.php?tab=manage_posts">Admin</a></li>
+                            ';
+                        }
+                    }
+                    ?>
+                    <?php
+                    if (!isset ($_SESSION["user_id"])) {
+
+                        echo '
+    <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
+    <li class="nav__list__items"><a href="./register.php">Register</a></li>
+    ';
+                    } else {
+                        echo '
+                        <li class="nav__list__items"><a href="./logout.php">Log out</a></li>
+                        ';
+
+                    }
+                    ?>
 
                 </ul>
 
@@ -46,8 +85,21 @@
                     <li class="nav__list__items"><a href="#">Help</a></li>
                     <li class="nav__list__items"><a href="#">Legislation</a></li>
                     <li class="nav__list__items"><a href="#">Contact</a></li>
-                    <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
-                    <li class="nav__list__items"><a href="./register.php">Register</a></li>
+                    <li class="nav__list__items"><a href="./admin.php?tab=manage_posts">Admin</a></li>
+                    <?php
+                    if (!isset ($_SESSION["user_id"])) {
+
+                        echo '
+    <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
+    <li class="nav__list__items"><a href="./register.php">Register</a></li>
+    ';
+                    } else {
+                        echo '
+                        <li class="nav__list__items"><a href="./logout.php">Log out</a></li>
+                        ';
+
+                    }
+                    ?>
                 </ul>
                 <?php
                 // $path = basename($_SERVER['REQUEST_URI']);

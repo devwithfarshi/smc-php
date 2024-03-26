@@ -25,17 +25,17 @@
 
             $num_row = mysqli_num_rows($filter_blogs);
             if ($num_row < 1) {
-                echo "<h1>No Blogs Found !!!</h1>";
+                echo "<h2 class='no__blogs__found__text'>No Blogs Found !!!</h2>";
             } else {
 
                 while ($data = mysqli_fetch_array($filter_blogs)) {
                     echo '
                 <div class="blog__card">
-                <a href="blog_details.php?id=' . $data['id'] . '">;
+                <a href="blog_details.php?id=' . $data['id'] . '">
                     
                 <figure>
                 <img src="';
-                    echo $data["image"];
+                    echo 'uploads/' . $data["image"];
                     echo '" alt="Category">
                 
                 </figure>

@@ -23,7 +23,7 @@ if (isset ($_GET['id'])) {
 
     <section class="blog__details__wrapper">
         <figure class="blog_details_image">
-            <img src="<?php echo $data['image']; ?>" alt="blog">
+            <img src="<?php echo 'uploads/' . $data["image"]; ?>" alt="blog">
 
         </figure>
         <div class="blog_details_author_info">

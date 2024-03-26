@@ -52,3 +52,20 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.error_msg {
+  background-color: #f2dede;
+  color: #a94442 !important ;
+  padding: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 1.2rem;
+}
+.success_msg {
+  background-color: #def2e0;
+  color: #429aa9 !important ;
+  padding: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 1.2rem;
+}

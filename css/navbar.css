@@ -1,4 +1,4 @@
-header {
+header.navbar_header {
   background: var(--c-7);
   padding-bottom: 1rem;
   border-bottom: 0.1rem solid var(--c-5);
@@ -34,7 +34,34 @@ header {
   font-weight: 600;
   text-transform: capitalize;
   white-space: nowrap;
+  position: relative;
 }
+.nav__list__items:hover .drop_down {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav_list .drop_down {
+  position: absolute;
+  background: var(--c-6);
+  top: 150%;
+  border-radius: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.drop__down__nav__list__items {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+  padding: 1rem 1.5rem;
+}
+.drop__down__nav__list__items a {
+  color: var(--c-3);
+}
+
 .nav__list__items a {
   color: var(--c-3);
   position: relative;

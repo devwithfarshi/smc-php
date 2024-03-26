@@ -94,6 +94,16 @@ banner
   margin-bottom: 2rem;
 }
 
+.no__blogs__found__text {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--c-3);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
 .banner__btn {
   display: inline-block;
   background-color: var(--c-2);
@@ -134,6 +144,7 @@ End banner
 
 .blog__card figure {
   height: 42rem;
+  position: relative;
   img {
     width: 100%;
     height: 100%;

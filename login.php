@@ -1,32 +1,27 @@
-<?php include './components/header.php'; ?>
-<?php
-session_start();
-// unset($_SESSION["status"]);
-$msg = '';
+<?php include './components/header.php';
+include "db.php";
+if (isset ($_SESSION['log_fail'])) {
+
+    echo $_SESSION['log_fail'];
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    if ($email != "" && $password != "") {
-        include "db.php";
-        $password = md5($password);
-        $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-        //FIXME: check the query and do login
-        echo $query;
+    $pass = $_POST['password'];
+    if ($email != "" && $pass != "") {
+        $query = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
         $results = mysqli_query($db_con, $query);
         if (mysqli_num_rows($results) == 1) {
-            // $_SESSION['user_id'] = ;
-            // print_r(mysqli_fetch_array($results));
-            echo "succes";
-            $msg = "You are now logged in";
+            $data = mysqli_fetch_array($results);
+            $_SESSION["user_id"] = $data["id"];
+            $_SESSION["isAdmin"] = $data["admin"];
+            $_SESSION['log_fail'] = 0;
             header('location: index.php');
         } else {
-            $msg = "Invalied Email or Password!";
+            header('Location: logfail.php');
         }
     } else {
-
-        $msg = "Required Email and Password";
+        header('Location: login.php?error=Required Email and Password');
     }
-    $_SESSION["status"] = $msg;
 }
 
 ?>
@@ -38,22 +33,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <section class="login__section">
             <h2>Login</h2>
+
+
             <?php
-            if (isset ($_SESSION["status"])) {
+            if (isset ($_GET["error"])) {
                 ?>
-                <p>
-                    <?php echo $_SESSION["status"]; ?>
-                </p>
-                <?php
-                unset($_SESSION["status"]);
-            }
-            ?>
+            <p class="error_msg">
+                <?php echo $_GET["error"]; ?>
+            </p>
+            <?php } ?>
+            <?php
+            if (isset ($_GET["success"])) {
+                ?>
+            <p class="success_msg">
+                <?php echo $_GET["success"]; ?>
+            </p>
+            <?php } ?>
 
-
-            <form class="auth_form" method="post">
+            <form class="auth_form" method="POST">
                 <input type="email" placeholder="email" name="email">
                 <input type="password" placeholder="Password" name="password">
-                <button type="submit" class="login__btn" name="">Login</button>
+                <?php if (isset ($_SESSION["login_fail"])) {
+                    if ($_SESSION["login_fail"] < 3) {
+
+                        echo '
+                        <button type="submit" class="login__btn" name="">Login</button>
+                        ';
+                    } else {
+                        echo "wait for sometime to login...";
+                    }
+                } else {
+                    echo '
+                    <button type="submit" class="login__btn" name="">Login</button>
+                    ';
+                }
+                ?>
             </form>
             <p>No account? <a href="register.php">create one!</a></p>
         </section>
