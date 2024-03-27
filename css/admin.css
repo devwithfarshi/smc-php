@@ -9,6 +9,11 @@
   position: sticky;
   top: 15rem;
 }
+
+.active_tab {
+  background-color: var(--c-3);
+}
+
 .admin_dashboard {
   flex: 1;
   margin-top: 2rem;

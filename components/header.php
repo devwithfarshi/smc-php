@@ -104,7 +104,7 @@ $_SESSION["email"] = $email;
                     <li class="nav__list__items"><a href="#">Livestreaming</a></li>
                     <li class="nav__list__items"><a href="#">Help</a></li>
                     <li class="nav__list__items"><a href="#">Legislation</a></li>
-                    <li class="nav__list__items"><a href="#">Contact</a></li>
+                    <li class="nav__list__items"><a href="./contact.php">Contact</a></li>
                     <li class="nav__list__items"><a href="./admin.php?tab=manage_posts">Admin</a></li>
                     <?php
                     if (!isset($_SESSION["user_id"])) {
