@@ -7,9 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pass = md5($pass);
         $query = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
         $results = mysqli_query($db_con, $query);
-        // print_r($results);
-        // return;
-
         if (mysqli_num_rows($results) == 1) {
             $data = mysqli_fetch_array($results);
             $_SESSION["user_id"] = $data["id"];
