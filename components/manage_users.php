@@ -53,37 +53,37 @@ if (isset($_GET["id"])) {
         if ($num_row < 1) {
             echo "<h2 class='no__blogs__found__text' >No Users Found !!!</h2>";
         } else { ?>
-            <?php
+        <?php
             if (isset($_GET["error"])) {
                 ?>
-                <p class="user_update_error_msg">
-                    <?php echo $_GET["error"]; ?>
-                </p>
-            <?php } ?>
-            <?php
+        <p class="user_update_error_msg">
+            <?php echo $_GET["error"]; ?>
+        </p>
+        <?php } ?>
+        <?php
             if (isset($_GET["sussess"])) {
                 ?>
-                <p class="user_update_success_msg">
-                    <?php echo $_GET["sussess"]; ?>
-                </p>
-            <?php } ?>
-            <ul class="admin_view_user_list">
-                <?php while ($data = mysqli_fetch_array($filter_users)) { ?>
-                    <li class="admin_view_user_card">
-                        <figure>
-                            <img src="uploads/6602a6498b159.jpg" alt="user">
-                        </figure>
-                        <div class="user_info">
+        <p class="user_update_success_msg">
+            <?php echo $_GET["sussess"]; ?>
+        </p>
+        <?php } ?>
+        <ul class="admin_view_user_list">
+            <?php while ($data = mysqli_fetch_array($filter_users)) { ?>
+            <li class="admin_view_user_card">
+                <figure>
+                    <img src="uploads/avatar.png" alt="user">
+                </figure>
+                <div class="user_info">
 
-                            <h2>
-                                <?php echo $data['full_name'] ?>
-                            </h2>
-                            <p>
-                                <?php echo $data["email"] ?>
-                            </p>
-                        </div>
-                        <form method="post" class="admin_user_action">
-                            <?php
+                    <h2>
+                        <?php echo $data['full_name'] ?>
+                    </h2>
+                    <p>
+                        <?php echo $data["email"] ?>
+                    </p>
+                </div>
+                <form method="post" class="admin_user_action">
+                    <?php
                             if (!$data["admin"]) {
 
                                 if ($data["isPremium"]) {
@@ -96,22 +96,22 @@ if (isset($_GET["id"])) {
                             }
                             ?>
 
-                            <?php
+                    <?php
                             if (!$data["admin"]) {
                                 echo '<a  href="admin.php?tab=manage_users&id=' . $data["id"] . '&opt=a" class="admin_user_action_admin_btn" >Make Admin</a>';
                             }
                             ?>
-                            <!-- mnp == make non Premium? -->
-                            <!-- mp == make Premium? -->
-                            <!-- a == make admin? -->
-                        </form>
-                    </li>
-                    <?php
+                    <!-- mnp == make non Premium? -->
+                    <!-- mp == make Premium? -->
+                    <!-- a == make admin? -->
+                </form>
+            </li>
+            <?php
                 }
                 ; ?>
-            </ul>
+        </ul>
 
-            <?php
+        <?php
         }
         ; ?>
 

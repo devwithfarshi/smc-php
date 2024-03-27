@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2024 at 08:27 PM
+-- Generation Time: Mar 27, 2024 at 08:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,7 +73,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `isPremium`, `createdAt`, `admin`, `avatar`) VALUES
-(1, 'Admin', 'admin@admin.com', 'admin', 0, '2024-03-27 19:27:27', 1, NULL);
+(2, 'Admin', 'admin@admin.com', '7ece99e593ff5dd200e2b9233d9ba654', 0, '2024-03-27 19:37:13', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -118,7 +118,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
