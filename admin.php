@@ -1,7 +1,7 @@
 <?php include './components/header.php'; ?>
 
 <?php
-if (!isset ($_SESSION["isAdmin"]) || $_SESSION["isAdmin"] == 0) {
+if (!isset($_SESSION["isAdmin"]) || $_SESSION["isAdmin"] == 0) {
     header('Location: index.php');
 }
 ?>
@@ -20,7 +20,7 @@ if (!isset ($_SESSION["isAdmin"]) || $_SESSION["isAdmin"] == 0) {
 
 
             <?php
-            if (isset ($_GET["tab"])) {
+            if (isset($_GET["tab"])) {
                 if ($_GET["tab"] == "manage_posts") {
                     include "./components/manage_post.php";
                 } elseif ($_GET["tab"] == "manage_users") {

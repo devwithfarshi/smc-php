@@ -66,15 +66,15 @@ if (isset ($_POST['create__post'])) {
         <?php
         if (isset ($_GET["error"])) {
             ?>
-            <p class="admin_error_msg">
-                <?php echo $_GET["error"]; ?>
-            </p>
+        <p class="admin_error_msg">
+            <?php echo $_GET["error"]; ?>
+        </p>
         <?php } ?>
         <form method="post" class="post_form" enctype="multipart/form-data">
             <input type=" text" placeholder="Title" name="title" autofocus>
             <textarea name="description" placeholder="Write Description here..."></textarea>
             <input type="file" name="image" accept=".jpg, .jpeg, .png">
-            <button type="submit" class="addmin_post_btn" name="create__post">shear</button>
+            <button type="submit" class="addmin_post_btn" name="create__post">share</button>
         </form>
     </section>
 

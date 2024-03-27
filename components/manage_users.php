@@ -30,8 +30,9 @@ if (isset($_GET["id"])) {
 
     <header class="manage_header">
         <h2 class="manage_heading">manage users</h2>
-        <form class="search__box">
-            <input name="u_search" type="text" placeholder="Search user by email">
+        <form class="search__box" method="get">
+            <input name="tab" value="manage_users" hidden>
+            <input name="u_search" type="text" placeholder="Search user by id or email">
             <button class="search_btn" type="submit">
                 <img src="assets/icons/search.png" alt="search">
             </button>
@@ -41,14 +42,13 @@ if (isset($_GET["id"])) {
     <sectoin class="admin__section__wrapper">
         <?php
         $filter_users;
-        include "db.php";
-        $sql = "SELECT * FROM `users` ";
+        $query = "SELECT * FROM `users` ";
         if (isset($_GET["u_search"]) && $_GET["u_search"] != "") {
-            $search = $_GET["u_search"];
-            $sql .= "WHERE users.email LIKE '%$search%' ";
+            $u_search = $_GET["u_search"];
+            $query .= "WHERE users.email LIKE '%$u_search%' OR users.id LIKE '%$u_search%'";
         }
-        $sql .= "ORDER BY `users`.`full_name` ASC";
-        $filter_users = mysqli_query($db_con, $sql);
+        $query .= "ORDER BY `users`.`full_name` ASC";
+        $filter_users = mysqli_query($db_con, $query);
         $num_row = mysqli_num_rows($filter_users);
         if ($num_row < 1) {
             echo "<h2 class='no__blogs__found__text' >No Users Found !!!</h2>";

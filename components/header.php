@@ -3,16 +3,22 @@ session_start();
 include "db.php";
 $isPrimium = 0;
 $isAdmin = 0;
+$full_name = "";
+$email = "";
 if (isset($_SESSION["user_id"])) {
     $user_id = $_SESSION["user_id"];
-    $sql = "SELECT isPremium,admin FROM `users` WHERE id='$user_id'";
+    $sql = "SELECT isPremium,admin,full_name,email FROM `users` WHERE id='$user_id'";
     $results = mysqli_query($db_con, $sql);
     $data = mysqli_fetch_array($results);
     $isPrimium = $data["isPremium"];
     $isAdmin = $data["admin"];
+    $full_name = $data["full_name"];
+    $email = $data["email"];
 }
 $_SESSION["isPremium"] = $isPrimium;
 $_SESSION["isAdmin"] = $isAdmin;
+$_SESSION["full_name"] = $full_name;
+$_SESSION["email"] = $email;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +31,7 @@ $_SESSION["isAdmin"] = $isAdmin;
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/contact.css">
     <?php
     if (isset($_SESSION["isAdmin"])) {
         if ($_SESSION['isAdmin']) {

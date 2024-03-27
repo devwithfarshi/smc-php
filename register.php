@@ -38,9 +38,9 @@ VALUES ('$full_name','$email','$password')";
             <?php
             if (isset($_GET["error"])) {
                 ?>
-                <p class="error_msg">
-                    <?php echo $_GET["error"]; ?>
-                </p>
+            <p class="error_msg">
+                <?php echo $_GET["error"]; ?>
+            </p>
             <?php } ?>
             <form class="auth_form" method="post">
                 <input name="full_name" type="text" placeholder="Name">

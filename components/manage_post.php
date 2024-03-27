@@ -1,3 +1,23 @@
+<?php
+
+if (isset($_GET["post_id"]) & isset($_GET["opt"])) {
+    $post_id = $_GET["post_id"];
+    $opt = $_GET["opt"];
+    if ($opt == "d") {
+        include "db.php";
+        $sql = "DELETE FROM posts WHERE id = '$post_id'";
+        $results = mysqli_query($db_con, $sql);
+        if ($results) {
+            echo "<script>alert('Post deleted successfully');</script>";
+        } else {
+            echo "<script>alert('Something went wrong');</script>";
+        }
+    }
+}
+
+?>
+
+
 <main>
 
     <header class="manage_header">
@@ -11,7 +31,7 @@
         $filter_blogs;
         include "db.php";
         $sql = "SELECT posts.* , users.full_name as full_name FROM `posts` , `users` WHERE posts.posted_by=users.id ";
-        if (isset ($_GET["search"]) && $_GET["search"] != "") {
+        if (isset($_GET["search"]) && $_GET["search"] != "") {
             $search = $_GET["search"];
             $sql .= "AND posts.title LIKE '%$search%'";
         }
@@ -31,7 +51,7 @@
                 echo 'uploads/' . $data["image"];
                 echo '" alt="Category">
                 <figcaption class="admin_delete_post_btn">
-                <a href="#">Delete</a></figcaption>
+                <a href="admin.php?tab=manage_posts&post_id=' . $data["id"] . '&opt=d">Delete</a></figcaption>
 
                 </figure>
                 <h2>';

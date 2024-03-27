@@ -6,6 +6,8 @@
   flex: 0.3;
   background: var(--c-1);
   height: fit-content;
+  position: sticky;
+  top: 15rem;
 }
 .admin_dashboard {
   flex: 1;

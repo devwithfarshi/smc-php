@@ -5,7 +5,7 @@
     <div class="container">
         <h2 class="page_heading">
             <?php
-            if ($isPrimium) {
+            if ($isPrimium || $isAdmin) {
 
                 if (!isset($_GET["search"])) {
                     echo "Our Blogs";
@@ -20,7 +20,7 @@
         </h2>
 
         <?php
-        if ($isPrimium) {
+        if ($isPrimium || $isAdmin) {
             ?>
 
 

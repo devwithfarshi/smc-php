@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["user_id"] = $data["id"];
             $_SESSION["isAdmin"] = $data["admin"];
             $_SESSION["isPremium"] = $data["isPremium"];
+            $_SESSION["email"] = $data["email"];
             $_SESSION['log_fail'] = 0;
             header('location: index.php');
         } else {
