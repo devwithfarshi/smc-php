@@ -2,8 +2,6 @@
 
 
 <?php
-// TODO: add user upload profile image
-// Pa$$w0rd!
 include "db.php";
 if (isset($_POST['reg_user'])) {
     $full_name = $_POST['full_name'];
@@ -16,6 +14,7 @@ if (isset($_POST['reg_user'])) {
         $num_row = mysqli_num_rows($run);
         if ($num_row < 1) {
             if ($password == $re_password) {
+                $password = md5($password);
                 $sql = "INSERT INTO users(full_name,email,password) 
 VALUES ('$full_name','$email','$password')";
                 mysqli_query($db_con, $sql);
@@ -38,9 +37,9 @@ VALUES ('$full_name','$email','$password')";
             <?php
             if (isset($_GET["error"])) {
                 ?>
-            <p class="error_msg">
-                <?php echo $_GET["error"]; ?>
-            </p>
+                <p class="error_msg">
+                    <?php echo $_GET["error"]; ?>
+                </p>
             <?php } ?>
             <form class="auth_form" method="post">
                 <input name="full_name" type="text" placeholder="Name">

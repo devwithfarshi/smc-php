@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $pass = $_POST['password'];
     if ($email != "" && $pass != "") {
+        $pass = md5($pass);
         $query = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
         $results = mysqli_query($db_con, $query);
         if (mysqli_num_rows($results) == 1) {
@@ -40,16 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php
             if (isset($_GET["error"])) {
                 ?>
-                <p class="error_msg">
-                    <?php echo $_GET["error"]; ?>
-                </p>
+            <p class="error_msg">
+                <?php echo $_GET["error"]; ?>
+            </p>
             <?php } ?>
             <?php
             if (isset($_GET["success"])) {
                 ?>
-                <p class="success_msg">
-                    <?php echo $_GET["success"]; ?>
-                </p>
+            <p class="success_msg">
+                <?php echo $_GET["success"]; ?>
+            </p>
             <?php } ?>
 
             <form class="auth_form" method="POST">
