@@ -2,10 +2,10 @@
 
 
 <?php
-session_start();
-
+// TODO: add user upload profile image
+// Pa$$w0rd!
 include "db.php";
-if (isset ($_POST['reg_user'])) {
+if (isset($_POST['reg_user'])) {
     $full_name = $_POST['full_name'];
     $email = $_POST['email'];
     if ($email != "") {
@@ -36,11 +36,11 @@ VALUES ('$full_name','$email','$password')";
         <section class="login__section">
             <h2>Register</h2>
             <?php
-            if (isset ($_GET["error"])) {
+            if (isset($_GET["error"])) {
                 ?>
-            <p class="error_msg">
-                <?php echo $_GET["error"]; ?>
-            </p>
+                <p class="error_msg">
+                    <?php echo $_GET["error"]; ?>
+                </p>
             <?php } ?>
             <form class="auth_form" method="post">
                 <input name="full_name" type="text" placeholder="Name">
@@ -48,6 +48,7 @@ VALUES ('$full_name','$email','$password')";
                 <input type="password" placeholder="Password" name="password" autocomplete="false">
                 <input type="password" placeholder="Confrim Password" name="re_password">
                 <button type="submit" class="login__btn" name="reg_user">Create</button>
+
             </form>
             <p>All ready have an account? <a href="login.php">Log in!</a></p>
         </section>

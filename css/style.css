@@ -127,6 +127,29 @@ End banner
   flex-wrap: wrap;
   gap: 3rem;
 }
+.intersted_to_premium_blog__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-direction: column;
+  align-items: center;
+}
+.intersted_to_premium_blog_para {
+  font-size: 2rem;
+  color: var(--c-3);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.intersted_to_premium_blog_contact_btn {
+  display: inline-block;
+  background-color: var(--c-2);
+  padding: 1rem 3rem;
+  border-radius: 3.2rem;
+  font-size: 2rem;
+  color: var(--c-7);
+  font-weight: 600;
+}
 
 .blog__card {
   width: 30%;

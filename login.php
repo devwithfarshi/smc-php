@@ -1,6 +1,6 @@
 <?php include './components/header.php';
 include "db.php";
-if (isset ($_SESSION['log_fail'])) {
+if (isset($_SESSION['log_fail'])) {
 
     echo $_SESSION['log_fail'];
 }
@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data = mysqli_fetch_array($results);
             $_SESSION["user_id"] = $data["id"];
             $_SESSION["isAdmin"] = $data["admin"];
+            $_SESSION["isPremium"] = $data["isPremium"];
             $_SESSION['log_fail'] = 0;
             header('location: index.php');
         } else {
@@ -36,24 +37,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             <?php
-            if (isset ($_GET["error"])) {
+            if (isset($_GET["error"])) {
                 ?>
-            <p class="error_msg">
-                <?php echo $_GET["error"]; ?>
-            </p>
+                <p class="error_msg">
+                    <?php echo $_GET["error"]; ?>
+                </p>
             <?php } ?>
             <?php
-            if (isset ($_GET["success"])) {
+            if (isset($_GET["success"])) {
                 ?>
-            <p class="success_msg">
-                <?php echo $_GET["success"]; ?>
-            </p>
+                <p class="success_msg">
+                    <?php echo $_GET["success"]; ?>
+                </p>
             <?php } ?>
 
             <form class="auth_form" method="POST">
                 <input type="email" placeholder="email" name="email">
                 <input type="password" placeholder="Password" name="password">
-                <?php if (isset ($_SESSION["login_fail"])) {
+                <?php if (isset($_SESSION["login_fail"])) {
                     if ($_SESSION["login_fail"] < 3) {
 
                         echo '

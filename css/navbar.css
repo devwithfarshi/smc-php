@@ -97,6 +97,9 @@ header.navbar_header {
 .search_btn {
   background-color: transparent;
   border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search__box input {

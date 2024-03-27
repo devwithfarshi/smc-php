@@ -1,5 +1,18 @@
 <?php
 session_start();
+include "db.php";
+$isPrimium = 0;
+$isAdmin = 0;
+if (isset($_SESSION["user_id"])) {
+    $user_id = $_SESSION["user_id"];
+    $sql = "SELECT isPremium,admin FROM `users` WHERE id='$user_id'";
+    $results = mysqli_query($db_con, $sql);
+    $data = mysqli_fetch_array($results);
+    $isPrimium = $data["isPremium"];
+    $isAdmin = $data["admin"];
+}
+$_SESSION["isPremium"] = $isPrimium;
+$_SESSION["isAdmin"] = $isAdmin;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +26,7 @@ session_start();
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/responsive.css">
     <?php
-    if (isset ($_SESSION["isAdmin"])) {
+    if (isset($_SESSION["isAdmin"])) {
         if ($_SESSION['isAdmin']) {
             echo '<link rel="stylesheet" href="css/admin.css">';
         }
@@ -44,9 +57,9 @@ session_start();
 
                     </li>
 
-                    <li class="nav__list__items"><a href="#">Contact</a></li>
+                    <li class="nav__list__items"><a href="./contact.php">Contact</a></li>
                     <?php
-                    if (isset ($_SESSION["isAdmin"])) {
+                    if (isset($_SESSION["isAdmin"])) {
                         if ($_SESSION['isAdmin']) {
 
                             echo '    
@@ -56,7 +69,7 @@ session_start();
                     }
                     ?>
                     <?php
-                    if (!isset ($_SESSION["user_id"])) {
+                    if (!isset($_SESSION["user_id"])) {
 
                         echo '
     <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
@@ -87,7 +100,7 @@ session_start();
                     <li class="nav__list__items"><a href="#">Contact</a></li>
                     <li class="nav__list__items"><a href="./admin.php?tab=manage_posts">Admin</a></li>
                     <?php
-                    if (!isset ($_SESSION["user_id"])) {
+                    if (!isset($_SESSION["user_id"])) {
 
                         echo '
     <li class="nav__list__items"><a href="./login.php">Sign in</a></li>
